@@ -1,0 +1,19 @@
+
+<h1> Liste des produits </h1>
+
+
+{% if best_nutriscore %}
+    
+
+    <ul>
+    {% for nutriscore in best_nutriscore %}
+        <li>
+            <a  href="{% url 'detail' nutriscore.id %}">{{ nutriscore.brands }}</a>
+            
+            
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No product are available.</p>
+{% endif %}
