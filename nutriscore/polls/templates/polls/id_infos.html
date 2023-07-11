@@ -1,6 +1,39 @@
+
+
+
 <h1> Detail du produits </h1>
 
+    <p>Le produit <b>{{product.brands}}</b> a pour nutiscore <b>{{product.nutriscore_grade}}</b> 
+        et pour note <b>{{product.nutriscore_score}}</b>
+       
+    
+    <p/> 
 
-<p>Le produit <b>{{brands}}</b> a pour nutiscore <b>{{nutriscore}}</b> 
-    et pour note <b>{{note}}</b>
-<p/> 
+
+
+
+<form action="{% url 'polls:vote' product.id %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <h1> Detail du produits </h1>
+
+
+
+
+   
+
+
+ {% for choice in produit %}
+         <p>  {{ choice.nutriscore_score }} 
+            <p/> 
+        <input type="radio" name="choice" id="{{ choice.id }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.brands }}</label><br>
+    {% endfor %}
+
+  
+</fieldset> 
+<input type="submit" value="choice">
+</form>
+
+
+
