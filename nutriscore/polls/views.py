@@ -26,9 +26,7 @@ def detail(request, id):
 
     
     context = {  
-               "produit" : produit.objects.filter(
-                    nutriscore_score__lt = product.nutriscore_score
-                    ),
+               "produit" : produit.objects.all(),
                "product" : product,}
     return render(request, 'polls/id_infos.html', context)
 
